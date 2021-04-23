@@ -22,3 +22,19 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+NOTES:
+Store Model
+has_many :items
+
+string :name
+
+Item Model
+belongs_to :store
+
+string :name
+string :sku
+decimal :price
+string :location
+string :sizes
+string :category

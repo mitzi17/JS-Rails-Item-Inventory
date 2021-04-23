@@ -10,26 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_003534) do
+ActiveRecord::Schema.define(version: 2021_04_23_050557) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "sku", limit: 10
+    t.integer "sku", limit: 9
     t.decimal "price", precision: 10, scale: 2
     t.string "location"
-    t.string "sizes"
     t.string "category"
+    t.string "sizes"
     t.integer "store_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["sku"], name: "index_items_on_sku", unique: true
     t.index ["store_id"], name: "index_items_on_store_id"
   end
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "items", "stores"
